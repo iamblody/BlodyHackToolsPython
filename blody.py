@@ -538,7 +538,19 @@ clear()
 
 def main_menu():
     print("""
-    
+< rain >
+ ------
+                                    .::!!!!!!!:.
+  .!!!!!:.                        .:!!!!!!!!!!!!
+  ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
+      :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
+      $$$$$##WX!:      .<!!!!UW$$$$"  $$$$$$$$#
+      $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
+      ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
+        "$bd$$$$      '$$$$$$$$$$$o+#"
+             """"          """""""
+       """)
+       print("""
      ▄▄▄▄    ██▓     ▒█████  ▓█████▄▓██   ██▓
     ▓█████▄ ▓██▒    ▒██▒  ██▒▒██▀ ██▌▒██  ██▒
     ▒██▒ ▄██▒██░    ▒██░  ██▒░██   █▌ ▒██ ██░
@@ -571,47 +583,43 @@ def main_menu():
     
     
     """)
+try:
+    clear()
+    main_menu()
+    select = input("Enter the tool ID (1-14): ")
 
-if __name__ == "__main__":
-    while True:
-        try:
-            clear()
-            main_menu()
-            select = input("Enter the tool ID (1-14): ")
+    if select == "1":
+        nmap()
+    elif select == "2":
+        dirsearch()
+    elif select == "3":
+        gobuster()
+    elif select == "4":
+        rustscan()
+    elif select == "5":
+        sqlmap()
+    elif select == "6":
+        wpscan()
+    elif select == "7":
+        httpx()
+    elif select == "8":
+        hydra()
+    elif select == "9":
+        admin()
+    elif select == "10":
+        johntheripper()
+    elif select == "11":
+        msfvenom()
+    elif select == "12":
+        hashcat()
+    elif select == "13":
+        nikto()
+    elif select == "14":
+        enum4linux()
+        
+    else:
+        print("Invalid selection. Please enter a number from 1 to 14.")
+        close()
 
-            if select == "1":
-                nmap()
-            elif select == "2":
-                dirsearch()
-            elif select == "3":
-                gobuster()
-            elif select == "4":
-                rustscan()
-            elif select == "5":
-                sqlmap()
-            elif select == "6":
-                wpscan()
-            elif select == "7":
-                httpx()
-            elif select == "8":
-                hydra()
-            elif select == "9":
-                admin()
-            elif select == "10":
-                johntheripper()
-            elif select == "11":
-                msfvenom()
-            elif select == "12":
-                hashcat()
-            elif select == "13":
-                nikto()
-            elif select == "14":
-                enum4linux()
-                break
-            else:
-                print("Invalid selection. Please enter a number from 1 to 14.")
-                close()
-
-        except KeyboardInterrupt:
-            print("\nProgram closed. Exiting...")
-            break
+except KeyboardInterrupt:
+    print("\nProgram closed. Exiting...")
