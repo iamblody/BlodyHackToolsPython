@@ -1,4 +1,3 @@
-
 #/usr/bin/python
 #blody
 
@@ -15,7 +14,6 @@ def clear():
 
 def close():
     os.system("exit")
-
 
 def nmap():
     clear()
