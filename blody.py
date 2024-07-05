@@ -1,6 +1,6 @@
 #/usr/bin/python
 #blody
-
+#y<3
 import urllib.error
 import os
 import urllib.request
