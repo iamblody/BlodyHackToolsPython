@@ -1,3 +1,4 @@
+
 #/usr/bin/python
 #blody
 
@@ -14,6 +15,7 @@ def clear():
 
 def close():
     os.system("exit")
+
 
 def nmap():
     clear()
@@ -501,6 +503,51 @@ def enum4linux():
     else:
         close()
 
+def ffuf():
+    clear()
+    print("""
+    [*]Ffuf Tools
+        1|-> -u http://192.168.x.x/FUZZ -w /path/to/wordlist.txt
+        2|-> -u http://192.168.x.x/index.php?FUZZ=test -w /path/to/wordlist.txt
+        3|-> -u http://192.168.x.x -H "FUZZ: test" -w /path/to/wordlist.txt
+        4|-> -u http://192.168.x.x/file.FUZZ -w /path/to/extensions.txt
+        5|-> -u http://192.168.x.x/login -d "username=admin&password=FUZZ" -w /path/to/wordlist.txt
+    """)
+    choose = input("Id: ")
+    ip = input("Ip: ")
+    if(choose=="1"):
+        wordlist = input("Wordlist (/path/to/wordlist.txt): ")
+        os.system(f"ffuf -u http://{ip}/FUZZ -w {wordlist}")
+    elif(choose=="2"):
+        wordlist = input("Wordlist (/path/to/wordlist.txt): ")
+        os.system(f"ffuf -u http://{ip}/index.php?FUZZ=test -w {wordlist}")
+    elif(choose=="3"):
+        wordlist = input("Wordlist (/path/to/wordlist.txt): ")
+        os.system(f'ffuf -u http://{ip} -H "FUZZ: test" -w {wordlist}')
+    elif(choose=="4"):
+        wordlist = input("Wordlist (/path/to/wordlist.txt): ")
+        os.system(f"ffuf -u http://{ip}/file.FUZZ -w {wordlist}")
+    elif(choose=="5"):
+        wordlist = input("Wordlist (/path/to/wordlist.txt): ")
+        os.system(f'ffuf -u http://{ip}/login -d "username=admin&password=FUZZ" -w {wordlist}')
+    else:
+        close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 clear()
 #---------------------------------------------------------------------------------------------|
@@ -525,17 +572,9 @@ clear()
 #|____/|_____\___/|____/ |_|                                                                  |
 #""")                                                                                         |
 #---------------------------------------------------------------------------------------------|
-
-
-
-
-
-
-
-
-
 def main_menu():
     print("""
+
 
      ▄▄▄▄    ██▓     ▒█████  ▓█████▄▓██   ██▓
     ▓█████▄ ▓██▒    ▒██▒  ██▒▒██▀ ██▌▒██  ██▒
@@ -566,46 +605,52 @@ def main_menu():
     [12]Hashcat Tools
     [13]Nikto Tools
     [14]Enum4Linux Tools
-    
+    [15]Ffuf Tools
     
     """)
-try:
-    clear()
-    main_menu()
-    select = input("Enter the tool ID (1-14): ")
 
-    if select == "1":
-        nmap()
-    elif select == "2":
-        dirsearch()
-    elif select == "3":
-        gobuster()
-    elif select == "4":
-        rustscan()
-    elif select == "5":
-        sqlmap()
-    elif select == "6":
-        wpscan()
-    elif select == "7":
-        httpx()
-    elif select == "8":
-        hydra()
-    elif select == "9":
-        admin()
-    elif select == "10":
-        johntheripper()
-    elif select == "11":
-        msfvenom()
-    elif select == "12":
-        hashcat()
-    elif select == "13":
-        nikto()
-    elif select == "14":
-        enum4linux()
-        
-    else:
-        print("Invalid selection. Please enter a number from 1 to 14.")
-        close()
+if __name__ == "__main__":
+    while True:
+        try:
+            clear()
+            main_menu()
+            select = input("Enter the tool ID (1-15): ")
 
-except KeyboardInterrupt:
-    print("\nProgram closed. Exiting...")
+            if select == "1":
+                nmap()
+            elif select == "2":
+                dirsearch()
+            elif select == "3":
+                gobuster()
+            elif select == "4":
+                rustscan()
+            elif select == "5":
+                sqlmap()
+            elif select == "6":
+                wpscan()
+            elif select == "7":
+                httpx()
+            elif select == "8":
+                hydra()
+            elif select == "9":
+                admin()
+            elif select == "10":
+                johntheripper()
+            elif select == "11":
+                msfvenom()
+            elif select == "12":
+                hashcat()
+            elif select == "13":
+                nikto()
+            elif select == "14":
+                enum4linux()
+	    elif select == "15":
+		ffuf()
+                break
+            else:
+                print("Invalid selection. Please enter a number from 1 to 14.")
+                close()
+
+        except KeyboardInterrupt:
+            print("\nProgram closed. Exiting...")
+            break
