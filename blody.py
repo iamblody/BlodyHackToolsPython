@@ -533,22 +533,6 @@ def ffuf():
     else:
         close()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 clear()
 #---------------------------------------------------------------------------------------------|
 #print("""                                                                                    |
@@ -644,8 +628,8 @@ if __name__ == "__main__":
                 nikto()
             elif select == "14":
                 enum4linux()
-	    elif select == "15":
-		ffuf()
+	        elif select == "15":
+		        ffuf()
                 break
             else:
                 print("Invalid selection. Please enter a number from 1 to 15.")
