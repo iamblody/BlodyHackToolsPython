@@ -648,7 +648,7 @@ if __name__ == "__main__":
 		ffuf()
                 break
             else:
-                print("Invalid selection. Please enter a number from 1 to 14.")
+                print("Invalid selection. Please enter a number from 1 to 15.")
                 close()
 
         except KeyboardInterrupt:
