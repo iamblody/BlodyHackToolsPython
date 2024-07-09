@@ -534,6 +534,31 @@ def ffuf():
     else:
         close()
 
+def katana():
+    clear()
+    print("""
+    [*]Katana Tools
+        1|-> -u http://targetsite.com
+        2|-> -u http://targetsite.com --proxy http://127.0.0.1:8080
+        3|-> -u http://targetsite.com --wordlist /path/to/wordlist.txt
+        4|-> -u http://targetsite.com -o /path/to/outputfile.txt
+        5|-> -u http://targetsite.com --deep
+    """)
+    choose = input("Id: ")
+    link = input("Link (ex. https://target.com): ")
+    if choose == "1":
+        os.system(f"katana -u {link} ")
+    elif choose == "2":
+        os.system(f"katana -u {link} --proxy http://127.0.0.1:8080")
+    elif choose == "3":
+        wordlist = input("Wordlist: ")
+        os.system(f"katana -u {link} --wordlist {wordlist}")
+    elif choose == "4":
+        out = input("Outfile: ")
+        os.system(f"katana -u {link} -o {out}")
+    elif choose == "5":
+        os.system(f"katana -u {link} --deep")
+
 clear()
 #---------------------------------------------------------------------------------------------|
 #print("""                                                                                    |
@@ -591,7 +616,7 @@ def main_menu():
     [13]Nikto Tools
     [14]Enum4Linux Tools
     [15]Ffuf Tools
-    
+    [16]Katana Tools
     """)
 
 try:
@@ -629,6 +654,8 @@ try:
         enum4linux()
     elif select == "15":
         ffuf()
+    elif select == "16":
+        katana()
     else:
         print("Invalid selection. Please enter a number from 1 to 15.")
 except Exception as e:
