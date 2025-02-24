@@ -8,7 +8,7 @@ To install the project locally, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/blody77/blody-hack-tool
+    git clone https://github.com/iamblody/blody-hack-tool
     ```
 2. Navigate to the project directory:
     ```sh
